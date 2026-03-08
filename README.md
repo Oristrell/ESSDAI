@@ -1,2 +1,2 @@
 # ESSDAI
-EULAR Score d'activitat de la Malaltia de Sjögren
+EULAR Sjoögren's Syndrome Activity Index
