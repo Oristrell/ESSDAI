@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ESSDAI Calculator</title>
+
+<style>
+body {
+  background-color: #87CEEB;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px 0;
+}
+
+.container {
+  background-color: #fffde7;
+  width: 900px;
+  max-width: 95%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  margin: 0 auto;
+}
+
+.title-wrapper { text-align: center; }
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+  color: #3366cc;
+  border: 2px solid #3366cc;
+  border-radius: 8px;
+  background-color: #e6f0ff;
+  padding: 15px 25px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.logo { max-width: 60px; height: auto; }
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.section { margin-bottom: 25px; }
+
+.section h3 {
+  margin-bottom: 10px;
+  color: #3366cc;
+  text-decoration: underline;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+
+.item-label {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 12px; 
+  flex: 1;
+}
+
+.checkbox-group label {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start; 
+  font-size: 13px;
+  line-height: 1.2;   
+  gap: 5px;
+  word-break: break-word;
+}
+
+.options-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.option input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-top: 2px; /* fine-tune vertical alignment */
+}
+
+/* optional: offset the 4th option to the right */
+.option.offset {
+  margin-left: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: #3366cc;
+  color: white;
+}
+
+button:hover { opacity: 0.85; }
+
+.result {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 25px;
+}
+
+.reference {
+  font-size: 12px;
+  margin-top: 40px;
+  color: #555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="title-wrapper">
+    <div class="title">
+      <img src="LogOM5.png" alt="Logo" class="logo">
+      <H1>EULAR Sjögren’s Syndrome Disease Activity Index (ESSDAI)</h1>
+    </div>
+  </div>
+
+<!-- Constitutional -->
+
+<div class="item">
+<div class="item-label">Fever / Weight loss</div>
+
+<label class="option"><input type="radio" name="constitutional" value="0"> No fever / no weight loss</label>
+<label class="option"><input type="radio" name="constitutional" value="3"> Fever ≤38.5°C (excluding infection) or weight loss 5–10%</label>
+<label class="option"><input type="radio" name="constitutional" value="6"> Fever >38.5°C (excluding infection) or weight loss >10%</label>
+
+</div>
+
+<!-- Lymphadenopathy -->
+
+<div class="item">
+<div class="item-label">Lymphadenopathy (excluding infection)</div>
+
+<label class="option"><input type="radio" name="lymph" value="0"> None</label>
+<label class="option"><input type="radio" name="lymph" value="4"> Nodes &lt;2 cm (or inguinal node <3cm)</label>
+<label class="option"><input type="radio" name="lymph" value="8"> Nodes ≥2 cm or splenomegaly</label>
+<label class="option"><input type="radio" name="lymph" value="12"> Malignant B-cell lymphoproliferative disease</label>
+
+</div>
+
+<!-- Glandular -->
+
+<div class="item">
+<div class="item-label">Glandular (excluding infection or lithiasis)</div>
+
+<label class="option"><input type="radio" name="glandular" value="0"> No glandular swelling</label>
+<label class="option"><input type="radio" name="glandular" value="2"> Enlarged parotid ≤3 cm or limited submandibular/lachrymal swelling</label>
+<label class="option"><input type="radio" name="glandular" value="4"> Parotid >3 cm or important submandibular/lachrymal swelling</label>
+
+</div>
+
+<!-- Articular -->
+
+<div class="item">
+<div class="item-label">Articular (excluding osteoarthritis)</div>
+
+<label class="option"><input type="radio" name="articular" value="0"> No articular involvement</label>
+<label class="option"><input type="radio" name="articular" value="2"> Hands, wrists, ankles or feet arthralgias with morning stiffness >30min</label>
+<label class="option"><input type="radio" name="articular" value="4"> 1-5 (of 28 total count) synovitis</label>
+<label class="option"><input type="radio" name="articular" value="6"> ≥6 (of 28 total count) synovitis</label>
+
+</div>
+
+<!-- Cutaneous -->
+
+<div class="item">
+<div class="item-label">Cutaneous</div>
+
+<label class="option"><input type="radio" name="cutaneous" value="0"> None</label>
+<label class="option"><input type="radio" name="cutaneous" value="3"> Erythema multiforme</label>
+<label class="option"><input type="radio" name="cutaneous" value="6"> Limited cutaneous purpura or urticarial vasculitis</label>
+<label class="option"><input type="radio" name="cutaneous" value="9"> Diffuse cutaneous vasculitis</label>
+
+</div>
+
+<!-- Pulmonary -->
+
+<div class="item">
+<div class="item-label">Pulmonary</div>
+
+<label class="option"><input type="radio" name="pulmonary" value="0"> None</label>
+<label class="option"><input type="radio" name="pulmonary" value="5"> Persistent cough (with normal XRay), or interstitial disease with normal function tests</label>
+<label class="option"><input type="radio" name="pulmonary" value="10"> Moderate interstitial lung disease with shortness of breath on exercise, or DLCO 40-70%, or FVC 60-80%</label>
+<label class="option"><input type="radio" name="pulmonary" value="15"> Highly active lung disease with shortness of breath at rest or DLCO < 40% or FVC < 60%</label>
+
+</div>
+
+<!-- Renal -->
+
+<div class="item">
+<div class="item-label">Renal</div>
+
+<label class="option"><input type="radio" name="renal" value="0"> None (proteinuria < 0.5g/d, no hematuria, leucocituria, nor acidosis)</label>
+<label class="option"><input type="radio" name="renal" value="5"> Limited renal involvement (tubular acidosis without renal failure, proteinuria 0.5-1g/d without hematuria nor renal failure)</label>
+<label class="option"><input type="radio" name="renal" value="10"> Moderately active renal disease (tubular acidosis with GFR < 60ml/min, proteinuria 1-1.5g/d without hematuria nor renal failure, or extramembranous glomerulonephritis, or interstitial lymphoid infiltrate)</label>
+<label class="option"><input type="radio" name="renal" value="15"> Highly active renal disease (proteinuria > 1.5g/d, or hematuria, or renal failure (FGR < 60ml/min), or proliferative glomerulonephritis, or cryoglobulinemia-related renal involvement)</label>
+
+</div>
+
+<!-- Muscular -->
+
+<div class="item">
+<div class="item-label">Muscular (excludes weaknes due to steroids)</div>
+
+<label class="option"><input type="radio" name="muscular" value="0"> None</label>
+<label class="option"><input type="radio" name="muscular" value="6"> Mild active myositis (abnormal EMG or biopsy, without weakness and with CK < normal values*2)</label>
+<label class="option"><input type="radio" name="muscular" value="12"> Moderately active myositis (abnormal EMG or biopsy, with weakness 4/5 or CK < normal values*4)</label>
+<label class="option"><input type="radio" name="muscular" value="18"> Highly active myositis (abnormal EMG or biopsy, with weakness < 4/5 or CK > normal values*4)</label>
+
+</div>
+
+<!-- PNS -->
+
+<div class="item">
+<div class="item-label">Peripheral Nervous System</div>
+
+<label class="option"><input type="radio" name="pns" value="0"> None</label>
+<label class="option"><input type="radio" name="pns" value="5"> Mild peripheral nerve involvement (pure sensory axonal polyneuropathy shown by NCS or trigeminal neuralgia)</label>
+<label class="option"><input type="radio" name="pns" value="10"> Moderate peripheral nerve involvement (axonal sensory-motor polyneuropathy shown by NCS with motor deficit 4/5, pure sensory axonal polyneuropathy with cryoglobulinemic vasculitis, ganglionopathy with mild-moderate ataxia, or CIDP with motor deficit 4/5, or other, non-trigeminal, cranial nerve involvement)</label>
+<label class="option"><input type="radio" name="pns" value="15"> Severe peripheral nerve involvement (axonal sensory-motor polyneuropathy with motor deficit < 4/5, peripheral nerve involvement due to vasculitis, severe ataxia due to ganglionopathy, CIDP with sever functional impairment, or motor deficit < 4/5 or severe ataxia)</label>
+
+</div>
+
+<!-- CNS -->
+
+<div class="item">
+<div class="item-label">Central Nervous System</div>
+
+<label class="option"><input type="radio" name="cns" value="0"> None</label>
+<label class="option"><input type="radio" name="cns" value="10"> Moderately active CNS involvement (cranial nerve involvement of central origin, optic neuritis, multiple sclerosis-like syndrome with pure sensory symptoms, or proven cognitive impairment)</label>
+
+<label class="option"><input type="radio" name="cns" value="15"> Severe CNS involvement (cerebral vasculitis with stroke or TIA, seizures, transverse myelitis, lymphocytic meningitis, or multiple sclerosis-like syndrome with motor involvement)</label>
+
+</div>
+
+<!-- Hematologic -->
+
+<div class="item">
+<div class="item-label">Haematological</div>
+
+<label class="option"><input type="radio" name="heme" value="0"> None</label>
+<label class="option"><input type="radio" name="heme" value="2"> Mild autoimmune cytopenia (Neutrophils 1000-1500/mm3, Hb 10-12g/dl or Platelets 100-150.000/mm3)</label>
+<label class="option"><input type="radio" name="heme" value="4"> Moderate autoimmune cytopenia (Neutrophils 500-1000/mm3, Hb 8-10g/dl or Platelets 50-100.000/mm3)</label>
+<label class="option"><input type="radio" name="heme" value="6"> Severe autoimmune cytopenia (Neutrophils < 500/mm3, Hb < 8g/dl or Platelets < 50.000/mm3)</label>
+
+</div>
+
+<!-- Biological -->
+
+<div class="item">
+<div class="item-label">Biological</div>
+
+<label class="option"><input type="radio" name="bio" value="0"> Absence of any of the following features</label>
+<label class="option"><input type="radio" name="bio" value="1"> Clonal component, or low complement (C3, C4 or CH50), or hypergammaglobulinemia, or IgG 16-20g/l</label>
+<label class="option"><input type="radio" name="bio" value="2"> Presence of cryoglobulinemia, or IgG >20g/l, or recent onset hypogammaglobulinemia (IgG < 5g/l)</label>
+
+</div>
+
+
+<button onclick="calculate()">Calculate ESSDAI</button>
+<button onclick="location.reload()">Reset</button>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let score=0;
+
+let selected=document.querySelectorAll('input[type=radio]:checked');
+
+selected.forEach(r=>{
+score+=parseInt(r.value);
+});
+
+let activity="";
+
+if(score<=4) activity="Low activity";
+else if(score<=13) activity="Moderate activity";
+else activity="High activity";
+
+document.getElementById("result").innerHTML=
+"ESSDAI score: "+score+"<br>"+activity;
+
+}
+
+</script>
+
+</body>
+</html>
